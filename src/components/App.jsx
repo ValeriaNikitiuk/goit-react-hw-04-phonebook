@@ -32,9 +32,7 @@ const App = () => {
       return false;
     }
 
-    setContacts(prevState => ({
-      contacts: [addContact, ...prevState],
-    }));
+    setContacts(prevState => [addContact, ...prevState]);
     return true;
   };
 
@@ -48,7 +46,7 @@ const App = () => {
 
   const deleteContact = contactId => {
     setContacts(prevState =>
-      prevState.contacts.filter(contact => contact.id !== contactId)
+      prevState.filter(contact => contact.id !== contactId)
     );
   };
 
